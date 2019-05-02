@@ -13,6 +13,7 @@ import DeckDetail from './src/components/DeckDetail'
 import QuizPage from './src/components/QuizPage'
 import { white, purple } from './src/utils/colors'
 import { setLocalNotification } from './src/utils/helpers'
+import CustomStatusBar from './src/components/CustomStatusBar'
 
 const Tabs = TabNavigator({
   DeckList: {
@@ -93,6 +94,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer, middleware)}>
+       <CustomStatusBar backgroundColor={purple} barStyle="light-content" />
         <View style={{flex: 1}}>
           <MainNavigator /> 
         </View>

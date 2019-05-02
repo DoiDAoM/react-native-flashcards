@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet, Platform, TextInput } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet, Platform, TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { purple, white } from '../utils/colors'
 import ButtonAndroid from './ButtonAndroid'
@@ -22,22 +22,25 @@ class AddDeck extends Component {
 
     render() {
         return ( 
-            <View style={styles.container}> 
-                <Text style={styles.questionText}> What is the title of your new deck? </Text>
-                <TextInput
-                 editable = {true}
-                 onChangeText={(text) => this.setState({title: text})}
-                 style={styles.textInput}
-                />
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+                <View>
+                    <Text style={styles.questionText}>What is the title of your new deck?</Text>
+                    <TextInput
+                        editable = {true}
+                        onChangeText={(text) => this.setState({title: text})}
+                        style={styles.textInput}
+                    />
+                </View>
                 {Platform.OS === 'ios' ?
-                 <ButtonIOS style={styles.submitBtn} onPress={this.onSubmit}> 
+                <ButtonIOS onPress={this.onSubmit} style={styles.submitBtn}> 
                     <Text style={styles.btnText}> Create Deck </Text>
-                 </ButtonIOS> : 
-                <ButtonAndroid style={styles.submitBtn} onPress={this.onSubmit} > 
+                </ButtonIOS> : 
+                <ButtonAndroid onPress={this.onSubmit} style={styles.submitBtn} > 
                     <Text style={styles.btnText}> Create Deck </Text>
                 </ButtonAndroid>
                 } 
-            </View>
+            </KeyboardAvoidingView>
+     
         )
 
     }
@@ -49,6 +52,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         marginTop: 40,
+        justifyContent: 'space-between',
     },
     questionText: {
         fontSize: 30,
@@ -57,18 +61,18 @@ const styles = StyleSheet.create({
         marginTop: 60,
         borderWidth: 1,
         borderRadius: 4,
-        height: 40,
+        height: 54,
         fontSize: 30,
         padding: 5,
-    },
-    submitBtn: {
-        marginTop: 300,
     },
     btnText: {
         color: white,
         fontSize: 24,
         textAlign: 'center',
-    }
+    },
+    submitBtn: {
+        marginBottom: Platform === 'ios' ? 40 : 80,
+    },
       
 })
 

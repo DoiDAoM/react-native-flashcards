@@ -5,7 +5,7 @@ import { purple } from '../utils/colors'
 export default function ButtonIOS ({children, onPress, style = {}}) {
     return (
         <TouchableOpacity style={[styles.iosBtn, style]} onPress={onPress}>
-           <Text>{children}</Text>
+           {children}
         </TouchableOpacity>
       )
 }
@@ -13,11 +13,12 @@ export default function ButtonIOS ({children, onPress, style = {}}) {
 const styles = StyleSheet.create({
     iosBtn: {
         backgroundColor: purple,
-        padding: 4,
+        padding: 2,
         borderRadius: 7,
         height: 45,
         marginLeft: 40,
         marginRight: 40,
         margin: 10,
+        justifyContent: 'center'
     },
 })
