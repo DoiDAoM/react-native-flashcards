@@ -5,7 +5,7 @@ Then you can take quiz about these questions and test your knowledge.
 
 ## Platforms
 
-This app has been tested in both Android and IOS. Therefore, it's can be used in these platforms.
+This app has been tested in both Android and IOS. Therefore, it can be used in these platforms.
 
 ## Requirements
 
