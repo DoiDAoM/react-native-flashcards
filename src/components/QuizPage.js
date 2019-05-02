@@ -21,14 +21,16 @@ class QuizPage extends Component {
         const { questionIndex, correctAnswerCount } = this.state
         this.setState({
             questionIndex: questionIndex + 1,
-            correctAnswerCount: correctAnswerCount + 1
+            correctAnswerCount: correctAnswerCount + 1,
+            isShowingQuestion: true,
         })
     }
     onIncorrectClick = () => {
         const { questionIndex, incorrectAnswerCount } = this.state
         this.setState({
             questionIndex: questionIndex + 1,
-            incorrectAnswerCount: incorrectAnswerCount + 1
+            incorrectAnswerCount: incorrectAnswerCount + 1,
+            isShowingQuestion: true,
         })
     }
 

@@ -84,15 +84,9 @@ const MainNavigator = StackNavigator({
   }
   
 })
-export function timeToString (time = Date.now()) {
-  const date = new Date(time)
-  console.log(date.getHours() +''+ date.getMinutes())
-  const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
-  return todayUTC.toISOString().split('T')[0]
-}
+
 export default class App extends React.Component {
   componentDidMount() {
-    console.log(timeToString())
     setLocalNotification()
   }
 

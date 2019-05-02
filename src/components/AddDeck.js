@@ -17,7 +17,7 @@ class AddDeck extends Component {
         const { title } = this.state
 
         dispatch(handleAddNewDeck(title)).then(() => 
-            navigation.goBack())
+        navigation.navigate('DeckDetail',{ id: title }))
     }
 
     render() {
