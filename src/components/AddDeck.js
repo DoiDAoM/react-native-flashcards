@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
         height: 54,
         fontSize: 30,
         padding: 5,
+        justifyContent: 'center',
     },
     btnText: {
         color: white,

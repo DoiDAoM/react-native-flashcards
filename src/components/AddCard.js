@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet, Platform, TextInput } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet, Platform, TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { purple, white } from '../utils/colors'
 import ButtonAndroid from './ButtonAndroid'
@@ -31,7 +31,7 @@ class AddCard extends Component {
 
     render() {
         return ( 
-            <View style={styles.container}> 
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled> 
                 <View>
                     <TextInput
                     editable = {true}
@@ -54,7 +54,7 @@ class AddCard extends Component {
                     <Text style={styles.btnText}> Submit </Text>
                 </ButtonAndroid>
                 } 
-            </View>
+            </KeyboardAvoidingView>
         )
 
     }
@@ -75,12 +75,13 @@ const styles = StyleSheet.create({
         marginTop: 60,
         borderWidth: 1,
         borderRadius: 4,
-        height: 40,
+        height: 54,
         fontSize: 30,
         padding: 5,
+        justifyContent: 'center',
     },
     submitBtn: {
-        marginTop: 300,
+        marginBottom: Platform === 'ios' ? 40 : 120,
     },
     btnText: {
         color: white,
